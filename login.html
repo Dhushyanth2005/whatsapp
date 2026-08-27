@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - WhatsApp Web Clone</title>
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-container">
+      <div class="auth-box">
+        <div class="auth-header">
+          <div class="auth-header__logo">💬</div>
+          <h1 class="auth-header__title">WhatsApp Web</h1>
+          <p class="auth-header__subtitle">Sign in to access your messaging workspace</p>
+        </div>
+
+        <div id="toast-banner"></div>
+
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="form-group">
+            <label for="identifier">Username or Email</label>
+            <input
+              type="text"
+              id="identifier"
+              name="identifier"
+              class="form-input"
+              placeholder="Username or email address"
+              required
+            />
+            <div class="error-message" id="err-identifier"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-input"
+              placeholder="••••••••"
+              required
+            />
+            <div class="error-message" id="err-password"></div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-label">
+              <input type="checkbox" id="rememberMe" name="rememberMe" checked />
+              <span>Remember Me</span>
+            </label>
+          </div>
+
+          <div class="error-message" id="err-login-general" style="margin-top: 0.5rem; text-align: center;"></div>
+
+          <button type="submit" class="btn-primary" id="login-btn">Sign In</button>
+        </form>
+
+        <div class="auth-footer">
+          Don’t have an account? <a href="register.html">Create one</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

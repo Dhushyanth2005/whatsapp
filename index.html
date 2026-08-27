@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Web Clone</title>
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Chats">
+        <header class="sidebar__header">
+          <div class="sidebar__profile" id="user-profile-header">
+            <div class="avatar avatar--me" aria-hidden="true" id="my-avatar"></div>
+            <div class="sidebar__profile-copy">
+              <h1 class="sidebar__title" id="profile-name">WhatsApp</h1>
+              <p class="sidebar__subtitle" id="profile-status">@user</p>
+            </div>
+          </div>
+          <div class="sidebar__actions">
+            <button class="icon-button" type="button" id="menu-button" aria-label="Open menu">⋮</button>
+
+            <!-- Profile Dropdown Menu -->
+            <div class="profile-menu" id="profile-menu" hidden>
+              <button class="profile-menu__item" type="button" id="view-profile-btn">
+                <span>👤</span> View Profile
+              </button>
+              <button class="profile-menu__item" type="button" id="settings-menu-btn">
+                <span>⚙</span> Settings
+              </button>
+              <div class="profile-menu__divider"></div>
+              <button class="profile-menu__item profile-menu__item--danger" type="button" id="logout-menu-btn">
+                <span>⇦</span> Logout
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div class="sidebar__search" role="search">
+          <label class="sr-only" for="chat-search">Search chats</label>
+          <input id="chat-search" class="search-input" type="search" placeholder="Search by name or @username..." />
+        </div>
+
+        <section class="chat-list" aria-label="Chat list"></section>
+      </aside>
+
+      <!-- Main Chat View -->
+      <main class="chat-view" aria-label="Conversation area">
+        <header class="chat-header">
+          <div class="chat-header__contact">
+            <div class="avatar avatar--contact" aria-hidden="true"></div>
+            <div class="chat-header__meta">
+              <h2 class="chat-header__name">Select a user to chat</h2>
+              <p class="chat-header__status">Choose a contact from the sidebar</p>
+            </div>
+          </div>
+          <div class="chat-header__actions">
+            <button class="icon-button" type="button" title="Search messages">⌕</button>
+            <button class="icon-button" type="button" title="Options">⋯</button>
+          </div>
+        </header>
+
+        <section class="chat-thread" aria-label="Messages">
+          <div class="chat-thread__empty">
+            <h3>Welcome to WhatsApp Web</h3>
+            <p>Select a conversation from the sidebar to view messages.</p>
+          </div>
+        </section>
+
+        <footer class="chat-composer" aria-label="Message composer">
+          <div class="chat-composer__tools">
+            <button class="icon-button" type="button" id="attachment-button" aria-label="Open emoji picker">＋</button>
+          </div>
+          <label class="sr-only" for="message-input">Type a message</label>
+          <input id="message-input" class="composer-input" type="text" placeholder="Select a chat to type a message" disabled />
+          <button class="icon-button" type="button" aria-label="Send message" id="send-button">➤</button>
+          
+          <div class="composer-picker" id="composer-picker" hidden>
+            <div class="composer-picker__header">
+              <span>Emojis</span>
+              <button class="composer-picker__close" type="button" id="emoji-picker-close" aria-label="Close emoji picker">✕</button>
+            </div>
+            <div class="composer-picker__grid" id="composer-picker-grid"></div>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settings-modal" hidden>
+      <div class="settings-overlay" data-close-settings></div>
+      <div class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+        <div class="settings-panel__header">
+          <div>
+            <h2 class="settings-panel__title" id="settings-title">Settings</h2>
+            <p class="settings-panel__subtitle">Manage your account and preferences</p>
+          </div>
+          <button class="icon-button" type="button" data-close-settings aria-label="Close settings">✕</button>
+        </div>
+
+        <div class="settings-panel__body">
+          <section class="settings-section">
+            <h3>Profile</h3>
+            <label class="settings-field">
+              <span>Full Name</span>
+              <input id="settings-display-name" type="text" readonly disabled />
+            </label>
+            <label class="settings-field">
+              <span>Username</span>
+              <input id="settings-username" type="text" readonly disabled />
+            </label>
+            <label class="settings-field">
+              <span>Email</span>
+              <input id="settings-email" type="text" readonly disabled />
+            </label>
+          </section>
+
+          <section class="settings-section">
+            <h3>Preferences</h3>
+            <label class="settings-toggle">
+              <span>Dark mode</span>
+              <input id="settings-dark-mode" type="checkbox" checked />
+            </label>
+          </section>
+
+          <section class="settings-section">
+            <h3>Account & Session</h3>
+            <button class="settings-action settings-action--danger" id="logout-settings-button" type="button" style="background: #ea868f; color: #111b21;">Log Out</button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Script Files -->
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
